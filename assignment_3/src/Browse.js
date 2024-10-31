@@ -15,10 +15,38 @@ function Browse({cart, setCart, setViewer}) {
         fetchData();
     }, []);
 
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    };
+
+    const removeFromCart = (product) => {
+        let itemFound = false;
+        const updatedCart = cart.filter((cartItem) => {
+            if (cartItem.id === product.id && !itemFound) {
+                itemFound = true;
+                return false;
+            }
+            return true;
+        });
+        if (itemFound) {
+            setCart(updatedCart);
+        }
+    };
+
+    const onCheckout = () => {
+        setViewer(1);
+    };
+
+    const getQuantity = (product) => {
+        let matchingProducts = cart.filter((cartItem) => cartItem.id === product.id);
+        return matchingProducts.length;
+    } 
+
     return (
         <div className="d-flex" style={{ height: "100vh" }}>        
             <div className="flex-grow-1 p-4">
                 <h1>Store Catalog</h1>
+                <button type="button" className="btn btn-primary" onClick={() => onCheckout()}>Checkout</button>
                 <div className="row">
                     {catalog.map((product) => {
                         return (
@@ -30,6 +58,9 @@ function Browse({cart, setCart, setViewer}) {
                                             <strong>Price:</strong> ${product.price} <br />
                                             <strong>Description:</strong> {product.description} <br />
                                         </p>
+                                        <p>Quantity: {getQuantity(product)}</p>
+                                        <button type="button" className="btn btn-secondary" onClick={() => addToCart(product)}>+</button>
+                                        <button type="button" className="btn btn-secondary" onClick={() => removeFromCart(product)}>-</button>
                                     </div>
                                 </div>
                             </div>
