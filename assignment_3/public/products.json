@@ -1,44 +1,44 @@
 [
     {
         "id": 1,
-        "title": "Product 1",
-        "description": "This is product 1",
-        "price": 39.99,
-        "image": "https://i5.walmartimages.com/asr/3b6b97d9-5513-4306-9f67-670e5f1685b9_3.66292a820e873542307fa640603f118d.png?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+        "title": "Macintosh 128K",
+        "description": "The Macintosh, later rebranded as the Macintosh 128K, is the original Macintosh personal computer from Apple. It is the first successful mass-market all-in-one desktop personal computer with a graphical user interface, built-in screen and mouse. It was pivotal in establishing desktop publishing as a general office function. The motherboard, a 9 in (23 cm) CRT monochrome monitor, and a floppy drive are in a beige case with integrated carrying handle; it has a keyboard and single-button mouse.",
+        "price": 299.99,
+        "image": "images/applemacintosh128k.jpg"
     },
     {
         "id": 2,
-        "title": "Product 2",
-        "description": "This is product 2",
-        "price": 49.99,
-        "image": ""
+        "title": "Sony Walkman",
+        "description": "In March 1979, at the request of Masaru Ibuka, the audio department modified the small recorder used by journalists, \"Pressman\", into a smaller recorder. After many people praised the good sound quality evaluation, under the leadership of Akio Morita, SONY began to launch the Walkman in July 1979. Akio Morita positioned Walkman in the youth market, emphasized youth, vitality, and fashion, and created a headset culture. In February 1980, he began to sell Walkman to the world, and in November 1980, he began to use the non-standard Japanese and English brands globally. The Walkman has sold more than 250 million units worldwide.",
+        "price": 99.99,
+        "image": "images/sonywalkman.jpg"
     },
     {
         "id": 3,
-        "title": "Product 3",
-        "description": "This is product 3",
-        "price": 19.99,
-        "image": ""
+        "title": "IBM PC",
+        "description": "The IBM Personal Computer (model 5150, commonly known as the IBM PC) is the first microcomputer released in the IBM PC model line and the basis for the IBM PC compatible de facto standard. Released on August 12, 1981, it was created by a team of engineers and designers at International Business Machines (IBM), directed by William C. Lowe and Philip Don Estridge in Boca Raton, Florida.",
+        "price": 429.99,
+        "image": "/images/ibmpc.jpg"
     },
     {
         "id": 4,
-        "title": "Product 4",
-        "description": "This is product 4",
-        "price": 99.29,
-        "image": ""
+        "title": "Casio CA-53W",
+        "description": "The Casio CA-53W is a digital calculator watch manufactured by the Japanese electronics company Casio and was introduced in 1988 as a successor to the CA-50. It became famous for its appearance in the American science fiction films Back to the Future Part II (1989) and Back to the Future Part III (1990) and later for appearing in the American TV series Breaking Bad (2008–2013).",
+        "price": 79.99,
+        "image": "/images/casioca53w.jpg"
     },
     {
         "id": 5,
-        "title": "Product 5",
-        "description": "This is product 5",
-        "price": 4.99,
-        "image": ""
+        "title": "PlayStation 1",
+        "description": "The PlayStation (often known as the PS1 or the PSX) is a video game console made by Sony released in December 1994. At the time, it was competing against the Nintendo 64 and the Sega Saturn. PlayStation games were stored on CDs. The controllers that were first released with the console had no analog joysticks on them, but analog joysticks and a vibration feature were added to later controllers.",
+        "price": 129.99,
+        "image": "/images/ps1.jpg"
     },
     {
         "id": 6,
-        "title": "Product 6",
-        "description": "This is product 6",
-        "price": 33.99,
-        "image": ""
+        "title": "Game Boy",
+        "description": "The Game Boy is a handheld game console developed by Nintendo, launched in the Japanese home market on April 21, 1989, followed by North America later that year and other territories from 1990 onwards. Following the success of the Game & Watch single-game handhelds, Nintendo developed the Game Boy to be more like a portable console, with interchangeable cartridges. The concept proved highly successful and the Game Boy became a cultural icon of the 1990s and early 2000s.",
+        "price": 89.99,
+        "image": "/images/nintendogameboy.jpg"
     }
 ]

@@ -83,11 +83,11 @@ function Browse({cart, setCart, setViewer}) {
                     {filteredCatalog.map((product) => {
                         return (
                             <div key={product.id} className="col-lg-3 col-md-4">
-                                <div className="card mb-4">
+                                <div className="card mb-4" style={{height: "fit"}}>
                                     <img
                                         src={product.image}
                                         className="card-img-top"
-                                        style={{ width: "200px", margin: "auto"}}
+                                        style={{ width: "10vw", height: "20vh", margin: "auto"}}
                                         alt={product.title}
                                     />
                                     <div className="card-body">
