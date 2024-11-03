@@ -84,7 +84,7 @@ function Confirmation({ cart, setCart, setViewer, data }) {
                     </tfoot>
                 </Table>
 
-                <h1 style={{ color: 'green' }}>Thanks for your buisness {data.fullName}, Order Confirmed!</h1>
+                <h1 style={{ color: 'green' }}>Thanks for your business {data.fullName}, Order Confirmed!</h1>
 
                 <div style={{ display: 'flex', gap: '1rem' }}>
                 <Card style={{ width: '30rem' }}>
