@@ -33,6 +33,20 @@ function Cart({ cart, setData, setViewer }) {
         //setViewer(1);
     }
 
+    const condense = (cart) => {
+        const condensedCart = {};
+        cart.forEach((product) => {
+            if (condensedCart[product.id]) {
+                condensedCart[product.id].quantity += 1;
+            } else {
+                condensedCart[product.id] = { ...product, quantity: 1 };
+            }
+        });
+        return Object.values(condensedCart);
+    };
+
+    const uniqueProducts = condense(cart);
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
@@ -66,24 +80,25 @@ function Cart({ cart, setData, setViewer }) {
                         <tr>
                             <th></th>
                             <th>Product</th>
-                            <th>Description</th>
+                            <th>Quanity</th>
                             <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.map((product) => {
+                        {uniqueProducts.map((product) => {
                             sum += product.price;
                             return (
                                 <tr>
                                     <td><img
                                         src={product.image}
                                         alt={product.title}
-                                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                                        style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                                     /></td>
                                     {/* <td>{product.image}</td> */}
                                     {/* <td>{product.id}</td> */}
                                     <td>{product.title}</td>
-                                    <td>{product.description}</td>
+                                    <td>{product.quantity}</td>
+                                    {/* <td>{product.description}</td> */}
                                     <td>{product.price}</td>
                                 </tr>
                             )
@@ -93,7 +108,7 @@ function Cart({ cart, setData, setViewer }) {
                         <th></th>
                         <th>Total</th>
                         <th>{sum.toFixed(2)}</th>
-                        <th>Total w/tax: {(sum*1.07).toFixed(2)}</th>
+                        <th>Total w/tax: {(sum * 1.07).toFixed(2)}</th>
                     </tfoot>
                 </Table>
 
@@ -129,12 +144,19 @@ function Cart({ cart, setData, setViewer }) {
                     <div className="form-group mb-3">
                         <label>Credit Card</label>
                         <input
-                            {...register("creditCard", { required: true })}
+                            {...register("creditCard", {
+                                required: "Credit Card is required.",
+                                pattern: {
+                                    value: /^\d{16}$/,
+                                    message: "Card must have exactly 16 digits"
+                                }
+                            })}
                             placeholder="Credit Card"
                             className="form-control"
                         />
-                        {errors.creditCard && <p className="text-danger">Credit Card is required.</p>}
+                        {errors.creditCard && <p className="text-danger">{errors.creditCard.message}</p>}
                     </div>
+
 
                     <div className="form-group mb-3">
                         <label>Address</label>
@@ -182,17 +204,17 @@ function Cart({ cart, setData, setViewer }) {
                             <div className="form-group">
                                 <label>Zip</label>
                                 <input
-                                    {...register("zip", { 
-                                        required: "Zip is required", 
+                                    {...register("zip", {
+                                        required: "Zip is required",
                                         pattern: {
-                                            value: /^\d{5}$/,
-                                            message: "Zip must be exactly 5 digits"
+                                            value: /^(\d{5})?$/,
+                                            message: "Zip must be exactly 5"
                                         }
                                     })}
                                     placeholder="Zip"
                                     className="form-control"
                                 />
-                                {errors.zip && <p className="text-danger">Zip is required.</p>}
+                                {errors.zip && <p className="text-danger">{errors.zip.message}</p>}
                             </div>
                         </div>
                     </div>

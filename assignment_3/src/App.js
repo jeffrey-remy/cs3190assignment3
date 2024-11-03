@@ -16,7 +16,7 @@ function App() {
         <div>
             {viewer === 0 && <Browse cart={cart} setCart={setCart} setViewer={setViewer}/>}
             {viewer === 1 && <Cart cart={cart} setData={setData} setViewer={setViewer}/>}
-            {viewer === 2 && <Confirmation cart={cart} setViewer={setViewer} data={data}/>}
+            {viewer === 2 && <Confirmation cart={cart} setCart={setCart} setViewer={setViewer} data={data}/>}
         </div>
     )
 }

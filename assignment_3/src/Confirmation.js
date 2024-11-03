@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
-function Confirmation({ cart, setViewer, data }) {
+function Confirmation({ cart, setCart, setViewer, data }) {
 
 
     console.log(data)
@@ -19,38 +19,58 @@ function Confirmation({ cart, setViewer, data }) {
         setViewer(1);
     }
 
+    const returnToCatalog = () => {
+        setViewer(0);
+        setCart([])
+    }
+
+    const condense = (cart) => {
+        const condensedCart = {};
+        cart.forEach((product) => {
+            if (condensedCart[product.id]) {
+                condensedCart[product.id].quantity += 1;
+            } else {
+                condensedCart[product.id] = { ...product, quantity: 1 };
+            }
+        });
+        return Object.values(condensedCart);
+    };
+
+    const uniqueProducts = condense(cart);
+
     return (
 
         <div className="d-flex" style={{ height: "100vh" }}>
             <div className="flex-grow-1 p-4">
                 <Button variant="secondary" onClick={() => {
                     console.log("pressed return");
-                    returnToCart();
+                    returnToCatalog();
                 }
-                }>← Return</Button>{console.log("Testing Secondary")}
+                }>← Return To Catalog</Button>{console.log("Testing Secondary")}
                 <Table striped>
                     <thead>
                         <tr>
                             <th></th>
                             <th>Product</th>
-                            <th>Description</th>
+                            <th>Quanity</th>
                             <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.map((product) => {
+                        {uniqueProducts.map((product) => {
                             sum += product.price;
                             return (
                                 <tr>
                                     <td><img
                                         src={product.image}
                                         alt={product.title}
-                                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                                        style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                                     /></td>
                                     {/* <td>{product.image}</td> */}
                                     {/* <td>{product.id}</td> */}
                                     <td>{product.title}</td>
-                                    <td>{product.description}</td>
+                                    <td>{product.quantity}</td>
+                                    {/* <td>{product.description}</td> */}
                                     <td>{product.price}</td>
                                 </tr>
                             )
@@ -72,7 +92,7 @@ function Confirmation({ cart, setViewer, data }) {
                         <ul>
                             <li><strong>Name: </strong>{data.fullName}</li>
                             <li><strong>Email: </strong>{data.email}</li>
-                            <li><strong>Card Info: </strong>{data.creditCard}</li>
+                            <li><strong>Card Ending with: </strong>{data.creditCard.slice(11,15)}</li>
                             <li><strong>Address: </strong>{data.address}</li>
                             <li><strong>Apartment, studio, or floor: </strong>{data.address2}</li>
                             <li><strong>City: </strong>{data.city}</li>
@@ -91,7 +111,7 @@ function Confirmation({ cart, setViewer, data }) {
                             </thead>
                             <tbody>
                                 {cart.map((product) => {
-                                    sum += product.price;
+                                    // sum += product.price;
                                     return (
                                         <tr>
                                             <td>{product.title}</td>
