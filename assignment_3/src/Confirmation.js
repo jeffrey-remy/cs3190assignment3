@@ -31,10 +31,10 @@ function Confirmation({ cart, setViewer, data }) {
                 <Table striped>
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th></th>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +42,13 @@ function Confirmation({ cart, setViewer, data }) {
                             sum += product.price;
                             return (
                                 <tr>
-                                    <td>{product.id}</td>
+                                    <td><img
+                                        src={product.image}
+                                        alt={product.title}
+                                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                                    /></td>
+                                    {/* <td>{product.image}</td> */}
+                                    {/* <td>{product.id}</td> */}
                                     <td>{product.title}</td>
                                     <td>{product.description}</td>
                                     <td>{product.price}</td>
@@ -54,7 +60,7 @@ function Confirmation({ cart, setViewer, data }) {
                         <th></th>
                         <th>Total</th>
                         <th>{sum.toFixed(2)}</th>
-                        <th>Total w/tax: {(sum * 1.07).toFixed(2)}</th>
+                        <th>Total w/tax: {(sum*1.07).toFixed(2)}</th>
                     </tfoot>
                 </Table>
 
