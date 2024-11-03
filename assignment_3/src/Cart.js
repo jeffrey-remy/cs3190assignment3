@@ -5,10 +5,11 @@ import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.css";
 import ListGroup from 'react-bootstrap/ListGroup';
 import Table from 'react-bootstrap/Table';
+import Confirmation from "./Confirmation";
 
 
 
-function Cart({ cart, setCart, setViewer }) {
+function Cart({ cart, setData, setViewer }) {
 
     let sum = 0;
 
@@ -16,9 +17,17 @@ function Cart({ cart, setCart, setViewer }) {
         setViewer(0);
     }
 
-    const onSubmit = cart => {
-        console.log(cart); // log all cart
-        console.log(cart.email); // log only fullname
+
+    const onSubmit = data => {
+        console.log(data.fullName); // log all cart
+        console.log(data.email);
+        console.log(data.creditCard);
+        console.log(data.address);
+        console.log(data.address2);
+        console.log(data.city);
+        console.log(data.zip);
+        setData(data);
+        setViewer(2);
         // update hooks
         //setDataF(cart);
         //setViewer(1);
@@ -55,10 +64,10 @@ function Cart({ cart, setCart, setViewer }) {
                 <Table striped>
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th></th>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +75,13 @@ function Cart({ cart, setCart, setViewer }) {
                             sum += product.price;
                             return (
                                 <tr>
-                                    <td>{product.id}</td>
+                                    <td><img
+                                        src={product.image}
+                                        alt={product.title}
+                                        style={{ width: '50px', height: '50px', objectFit: 'cover' }}
+                                    /></td>
+                                    {/* <td>{product.image}</td> */}
+                                    {/* <td>{product.id}</td> */}
                                     <td>{product.title}</td>
                                     <td>{product.description}</td>
                                     <td>{product.price}</td>
@@ -85,6 +100,7 @@ function Cart({ cart, setCart, setViewer }) {
                 <h1>Payment Information</h1>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
+
                     <div className="row mb-3">
                         <div className="col-md-6">
                             <div className="form-group">
