@@ -36,9 +36,23 @@
     },
     {
         "id": 6,
+        "title": "PlayStation 2",
+        "description": "The PlayStation 2 (PS2) is a home video game console developed and marketed by Sony Computer Entertainment. It is the successor to the PlayStation, as well as the second installment in the PlayStation brand of consoles. It is the best-selling video game console of all time, having sold over 157.7 million units worldwide, nearly triple the combined sales of its competing consoles.",
+        "price": 109.99,
+        "image": "/images/ps2.jpg"
+    },
+    {
+        "id": 7,
         "title": "Game Boy",
         "description": "The Game Boy is a handheld game console developed by Nintendo, launched in the Japanese home market on April 21, 1989, followed by North America later that year and other territories from 1990 onwards. Following the success of the Game & Watch single-game handhelds, Nintendo developed the Game Boy to be more like a portable console, with interchangeable cartridges. The concept proved highly successful and the Game Boy became a cultural icon of the 1990s and early 2000s.",
         "price": 89.99,
         "image": "/images/nintendogameboy.jpg"
+    },
+    {
+        "id": 8,
+        "title": "VideoNow Player",
+        "description": "The VideoNow is a portable video player produced by Hasbro and released by their subsidiary Tiger Electronics in 2003 as part of Tiger's line of Now consumer products. The systems use discs called PVDs (which stands for Personal Video Disc), which can store about 30 minutes (half an hour) of video. Video data is stored on the left audio channel with audio on the right channel, thus making it impossible to achieve stereo sound on the system, which only plays in black and white. The video plays at 15fps.",
+        "price": 59.99,
+        "image": "/images/videonow.jpg"
     }
 ]

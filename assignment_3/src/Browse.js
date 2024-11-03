@@ -56,12 +56,18 @@ function Browse({cart, setCart, setViewer}) {
         setFilteredCatalog(results);
     }
 
+    // clear search results and display normal catalog
+    const clearSearch = () => {
+        document.getElementById("searchInput").value = "";
+        setFilteredCatalog(catalog);
+    }
+
 
     return (
         <div className="d-flex m-4 justify-content-center">   
             <div className="mb-4">  
                 <div className="d-flex justify-content-center">
-                    <h1>Store Catalog</h1>  
+                    <h1 style={{color: "red"}}>Retro Refurbishing</h1>  
                 </div>
                 {/* Top bar for searchbar and checkout button */}
                 <nav className="navbar navbar-light bg-light ">
@@ -72,6 +78,9 @@ function Browse({cart, setCart, setViewer}) {
                             </div>
                             <div className="col-auto">
                                 <button type="button" className="btn btn-outline-success form-control" onClick={() => handleSearch()}>Search</button>
+                            </div>
+                            <div className="col-auto">
+                                <button type="button" className="btn btn-outline-secondary form-control" onClick={() => clearSearch()}>Clear</button>
                             </div>
                         </form>
                     </div>
@@ -87,7 +96,7 @@ function Browse({cart, setCart, setViewer}) {
                                     <img
                                         src={product.image}
                                         className="card-img-top"
-                                        style={{ width: "10vw", height: "20vh", margin: "auto"}}
+                                        style={{ width: "80%", height: "25vh", margin: "auto", objectFit: "contain"}}
                                         alt={product.title}
                                     />
                                     <div className="card-body">
